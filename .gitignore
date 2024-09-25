@@ -1,0 +1,6 @@
+#Git ignore
+/.idea
+/.vscode
+/vendor
+.phpunit.cache
+!.gitkeep
