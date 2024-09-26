@@ -24,7 +24,7 @@ readonly class BinService implements BinServiceInterface
         }
 
         try {
-            $response = $this->client->get('https://lookup.binlist.net/' . $bin);
+            $response = $this->client->get(BIN_API_URL . $bin);
             $binData = json_decode($response->getBody());
 
             if (!isset($binData->country->alpha2)) {

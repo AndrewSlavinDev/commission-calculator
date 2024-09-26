@@ -60,7 +60,7 @@ Ensure the required API services are properly set up. If you need authentication
 
 To calculate commissions, you need to pass the transaction data through a file. The input format should be JSON (one transaction per line) with the following structure:
 
-```json
+```
 {"bin":"45717360","amount":"100.00","currency":"EUR"}
 {"bin":"516793","amount":"50.00","currency":"USD"}
 ```
@@ -86,19 +86,7 @@ This output represents the commission for each transaction based on the input da
 
 The solution uses PHPUnit for testing. Unit tests for `CommissionCalculator` and related services have been written to mock external dependencies (like the BIN and exchange rate APIs).
 
-To run tests:
-
-1. Install PHPUnit:
-
-```bash
-composer require phpunit/phpunit --dev
-```
-2. Install Mockery:
-
-```bash
-composer require mockery/mockery --dev
-```
-3. Execute the tests:
+Execute the tests:
 
 ```bash
 ./vendor/phpunit/phpunit/phpunit

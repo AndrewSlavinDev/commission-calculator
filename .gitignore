@@ -3,4 +3,7 @@
 /.vscode
 /vendor
 .phpunit.cache
+.env
+.env.backup
+.env.production
 !.gitkeep

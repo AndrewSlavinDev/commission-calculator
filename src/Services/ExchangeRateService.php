@@ -6,11 +6,9 @@ use App\Contracts\ExchangeRateServiceInterface;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 
-class ExchangeRateService implements ExchangeRateServiceInterface
+readonly class ExchangeRateService implements ExchangeRateServiceInterface
 {
-    private string $apiUrl = 'https://api.exchangeratesapi.io/latest';
-
-    public function __construct(private readonly ClientInterface $client)
+    public function __construct(private ClientInterface $client)
     {
     }
 
@@ -20,7 +18,7 @@ class ExchangeRateService implements ExchangeRateServiceInterface
     public function getRate(string $currency): float
     {
         try {
-            $response = $this->client->get($this->apiUrl);
+            $response = $this->client->get(EXCHANGE_RATE_API_URL);
             $rates = json_decode($response->getBody(), true)['rates'];
 
             if (!isset($rates[$currency])) {
